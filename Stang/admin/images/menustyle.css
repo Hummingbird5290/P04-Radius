@@ -1,0 +1,27 @@
+#menubar {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: Verdana, Geneva, Helvetica, Arial, sans-serif
+}
+#menubar A {
+	FONT-WEIGHT: normal; FONT-SIZE: 11px; COLOR: #ffffff; FONT-FAMILY: Verdana, Geneva, Helvetica, Arial, sans-serif; TEXT-DECORATION: none
+}
+#menubar A:visited {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: Verdana, Geneva, Helvetica, Arial, sans-serif; TEXT-DECORATION: none
+}
+#menubar A:hover {
+	WIDTH: 100%; HEIGHT: 100%; BACKGROUND-COLOR: #4663a6
+}
+#menubar A.active {
+	FONT-WEIGHT: normal; FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: Verdana, Geneva, Helvetica, Arial, sans-serif
+}
+.menu .options {
+	BORDER-RIGHT: #333366 1px solid; BORDER-TOP: #333366 1px solid; FONT-SIZE: 10px; MARGIN-BOTTOM: 1px; BORDER-LEFT: #333366 1px solid; MARGIN-RIGHT: 1px; BORDER-BOTTOM: #333366 1px solid; FONT-FAMILY: Verdana, Geneva, Helvetica, Arial, sans-serif; BACKGROUND-COLOR: #a9bfde
+}
+.menu A {
+	PADDING-RIGHT: 8px; DISPLAY: block; PADDING-LEFT: 8px; FONT-SIZE: 10px; PADDING-BOTTOM: 1px; COLOR: #ffffff; PADDING-TOP: 1px; FONT-FAMILY: Verdana, Geneva, Helvetica, Arial, sans-serif; BACKGROUND-COLOR: transparent; TEXT-DECORATION: none
+}
+.menu A:visited {
+	FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: Verdana, Geneva, Helvetica, Arial, sans-serif
+}
+.menu A:hover {
+	FONT-SIZE: 10px; COLOR: #ffffff; FONT-FAMILY: Verdana, Geneva, Helvetica, Arial, sans-serif; BACKGROUND-COLOR: #333366; TEXT-DECORATION: none
+}

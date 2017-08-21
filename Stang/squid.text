@@ -1,0 +1,215 @@
+################################3
+#squid for 3.0
+#
+#mod by Tanakorn Piamsin
+#
+#thaigqsoft@gmail.com
+#
+
+#www.thaigqsoft.com
+
+http_port 8080 transparent 
+
+
+
+
+acl bittorrent_announce url_regex -i http://.+announce.+info_hash=   announce.php?passkey
+http_access deny bittorrent_announce
+
+
+acl lock url_regex -i "/etc/squid/sex"
+http_access deny lock
+deny_info http://10.0.0.1/block_web.php lock
+deny_info http://10.0.0.1/block_web.php bittorrent_announce
+
+tcp_outgoing_address 0.0.0.0
+udp_incoming_address 0.0.0.0
+udp_outgoing_address 0.0.0.0
+icp_port 0
+icp_query_timeout 0
+mcast_icp_query_timeout 2000
+dead_peer_timeout 10 seconds
+
+# ----- Time Out
+request_timeout 5 minutes
+forward_timeout 5 minutes
+connect_timeout 5 minutes
+peer_connect_timeout 1 minutes
+pconn_timeout 220 seconds
+read_timeout 15 minutes
+request_timeout 5 minutes
+persistent_request_timeout 2 minute
+shutdown_lifetime 5 seconds
+negative_ttl 2 minutes
+negative_ttl 3 minutes
+#positive_dns_ttl 520 seconds
+#negative_dns_ttl 520 seconds
+positive_dns_ttl 8 hours
+negative_dns_ttl 520 seconds
+
+netdb_low 900
+netdb_high 1000
+client_db on
+client_lifetime 1 day
+
+# ----- Acl Controls
+acl manager proto cache_object
+acl purge method purge
+acl localhost src 127.0.0.1
+
+
+# ----- Webconfig: acl_start
+ 
+ 
+ 
+
+
+# ----- Webconfig: acl_end
+acl systemnetworkcare src 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
+acl webconfig_lan  src 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
+
+acl all_port port 1-65535
+acl connect method connect
+ 
+
+ 
+
+# ----- Block Web banned_money888
+acl banned_money888 src 61.164.109.99
+acl banned_money888 src 121.199.253.130
+http_access deny banned_money888
+
+# ----- No cache
+acl nocache url_regex cgi-bin [^z]\? photos[1-9] \.D$ \.ini$ \.dll$ \.inf$ \.Xt \.xtp Loader\.exe 1st$ update.cfg\? urlinfo\.ini$ updatelist notice_popup ProjectG.exe.zip$ start/ucg UCG\.DAT$ UCGA?\.exe$ version\.cfg$ version\.* 10.0.0.1 192.168. 172. youtube
+cache deny nocache
+
+# ----- Options For Tuning The Cache
+quick_abort_min 0 KB
+quick_abort_max 0 KB
+quick_abort_pct 100
+
+half_closed_clients off
+http_access allow manager all
+http_access allow manager
+http_access allow all_port
+http_access allow connect all_port
+http_access allow localhost
+http_access allow systemnetworkcare
+http_access allow purge localhost
+http_access deny purge
+ 
+http_access deny all
+http_reply_access allow all
+icp_access allow all
+cache allow all
+
+# ----- Option Which Affect The Cache Size
+cache_dir aufs  /data/squid/cache1 1024 4 4
+
+cache_mem 500 MB
+cache_swap_low 95
+cache_swap_high 98
+
+memory_pools on
+minimum_object_size 0 KB
+maximum_object_size 32 MB
+maximum_object_size_in_memory 128 KB
+ 
+ipcache_size 4096
+ipcache_low 50
+ipcache_high 98
+fqdncache_size 4096
+cache_effective_user www-data
+cache_effective_group www-data
+
+cache_replacement_policy heap LFUDA
+memory_replacement_policy heap GDSF
+
+
+
+access_log /var/log/squid/access.log
+cache_log /var/log/squid/cache.log
+cache_store_log none 
+pid_filename /var/run/squid.pid 
+
+
+
+# ----- Snmp
+acl snmpcommunity snmp_community public
+snmp_port 3401
+snmp_access allow snmpcommunity localhost
+snmp_access deny all
+
+
+# ----- Administrative Parameters
+cache_mgr admin@thaigqsoft.com
+visible_hostname TLOG
+
+offline_mode on
+
+dns_nameservers  192.168.100.100  10.0.0.1 8.8.8.8 8.8.4.4
+refresh_pattern -i \.*$ 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+
+refresh_pattern -i ^https://*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^https://*.in.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^https://www.*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^https://www.*.in.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.co.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*.*-*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*-*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*-*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*-*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*.*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*.*-*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*-*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*-*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*-*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*.*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.co.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.in.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.gg.in.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.org 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.co.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.in.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.org 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.*.*.*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.*.*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.com 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.*.*.*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.*.*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.net 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.co.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.in.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.org 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.*.co.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.*.in.th 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://www.*.*.org 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+
+refresh_pattern -i ^http://*.*.*.*.*-* 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*.*-* 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*-* 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*-* 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*-* 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*.*.* 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.*.* 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.*.* 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://*.* 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i ^http://* 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+
+refresh_pattern -i .(gif|tif|tiff|jpeg|xbm|png|wrl|ico|pnm|pbm|pgm|ppm|rgb|xpm|xwd|pic|pict|bmp|jpg|jpe)$ 0 25000% 1440 override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i .(arj|sit|zip|rar|rgz|cfg|rtf|psf|hqx|exe|lzh|lha|cab|tar|tgz|gz|Z|wp|wp5|ps|prn|srf|pdf|tex|latax|txt|doc|ppt|gpf|upd|iso|jar|bz2|uue|gzip|ace|cab|kf|a[0-9][0-9]|r[0-9][0-9])$ 1400 100% 10080   override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i .(midi|wav|aif|aiff|au|ram|ra|snd|mid|mp2|mp3|mp4|mov|mpg|mpeg|mpe|avi|qt|qtm|viv)$ 0 120% 1440 override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern -i .(swf)$ 525960 18000% 525960 override-lastmod override-expire reload-into-ims ignore-reload
+refresh_pattern ^ftp: 1440 20% 10080
+refresh_pattern ^gopher: 1440 0% 1440
+refresh_pattern . 0 20% 4320 reload-into-ims
+
+refresh_pattern -i \\.flv$ 10080 90% 999999 ignore-no-cache override-expire ignore-private

@@ -1,0 +1,30 @@
+# jan/ 2/1970  1:27:41 by RouterOS 6.0rc11
+# software id = A7AW-TJBQ
+#
+      status: downloading
+  downloaded: 0KiB
+    duration: 0s
+# jan/ 2/1970  1:27:41 by RouterOS 6.0rc11
+# software id = A7AW-TJBQ
+#
+      status: downloading
+  downloaded: 0KiB
+    duration: 0s
+# jan/ 2/1970  1:27:41 by RouterOS 6.0rc11
+# software id = A7AW-TJBQ
+#
+      status: downloading
+  downloaded: 0KiB
+    duration: 0s
+# jan/ 2/1970  1:27:41 by RouterOS 6.0rc11
+# software id = A7AW-TJBQ
+#
+      status: downloading
+  downloaded: 0KiB
+    duration: 0s
+# jan/ 2/1970  1:27:41 by RouterOS 6.0rc11
+# software id = A7AW-TJBQ
+#
+      status: downloading
+  downloaded: 0KiB
+    duration: 0s

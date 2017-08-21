@@ -1,0 +1,17 @@
+#!/bin/sh
+
+#
+#       Check Proxy     v.10
+#       By Auttasak Wongkitta
+#       http://howtoconfig.com
+
+PROXY="10.0.0.1:8080"
+URL="http://manager.co.th"
+
+RESULT=$(/usr/bin/curl -x $PROXY  $URL  | wc -l)
+
+if [ $RESULT -gt  0 ]; then
+ exit 0
+else
+/bin/sh /data/squid.sh
+fi

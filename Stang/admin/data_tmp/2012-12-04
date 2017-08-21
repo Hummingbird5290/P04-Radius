@@ -1,0 +1,5 @@
+<graph caption='Monthly Unit ' xAxisName='Month' yAxisName='Units' decimalPrecision='0' formatNumberScale='0'>
+<set name='CPU Load %' value='2' color='AAFDD7' />
+<set name='ONLINE' value='64' color='DAFDD5' />
+<set name=' Memory Load' value='67.449553423751' color='FAFDD6' />
+</graph>

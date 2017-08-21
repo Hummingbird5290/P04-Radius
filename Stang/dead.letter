@@ -1,0 +1,13 @@
+To: admin@thaigqsoft.com
+
+From: squid@admin@thaigqsoft.com
+To: admin@thaigqsoft.com
+Subject: The Squid Cache (version 3.1.20) died.
+
+You've encountered a fatal error in the Squid Cache version 3.1.20.
+If a core file was created (possibly in the swap directory),
+please execute 'gdb squid core' or 'dbx squid core', then type 'where',
+and report the trace back to squid-bugs@squid-cache.org.
+
+Thanks!
+

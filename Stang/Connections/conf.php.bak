@@ -1,0 +1,59 @@
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=tis-620">
+<?
+$hostname_edoc = "127.0.0.1";
+$database_edoc = "radius";   
+$username_edoc = "thaigqsoft";
+$password_edoc = "logserver";
+
+$connect_db= mysql_connect ($hostname_edoc, $username_edoc, $password_edoc);
+if(!$connect_db){
+echo '<pre>';
+ $last_line = system('/usr/bin/sudo   /etc/init.d/mysql restart', $retval);
+echo '
+</pre>
+<hr />Last line of the output: ' . $last_line . '
+<hr />Return value: ' . $retval;
+
+echo '<pre>';
+$last_line = system('/usr/bin/sudo  /bin/sh  /data/clear_log.sh', $retval);
+echo '
+</pre>
+<hr />Last line of the output: ' . $last_line . '
+<hr />Return value: ' . $retval;
+}
+    mysql_query("SET character_set_results=tis620");
+    mysql_query("SET character_set_client=tis620");
+    mysql_query("SET character_set_connection=tis620");
+    mysql_query("SET collation_connection = tis620_thai_ci");
+    mysql_query("SET collation_database = tis620_thai_ci");
+    mysql_query("SET  collation_server = tis620_thai_ci");
+
+ mysql_select_db($database_edoc, $connect_db)  or trigger_error(mysql_error(),E_USER_ERROR);
+$query_seting = "SELECT   *   FROM seting      ";
+$seting_q= mysql_query($query_seting, $connect_db) or die(mysql_error());
+$row_seting = mysql_fetch_assoc($seting_q);
+
+$roomsDB=$row_seting[room];
+$siteDB=$row_seting[site];
+$idstdDB=$row_seting[idstd];
+$allow_register=$row_seting[allow_register];
+$none_chk_idperdb=$row_seting[none_chk_idper];
+# ชนิดการ เรียงลำดับในรายการ ผู้ใช้
+$order_by="register.site   ,   register.room    ,  register.fullname   ";
+
+
+
+//กรณีต้องการเล่นฟรีได้หลังสมัครหนึ่งช่วโมง
+/*
+$nexp_h=date('H:i:s', strtotime('+1 hours'));
+$data_datessss=date("d M Y");
+$data_datessss .=" $nexp_h";
+*/
+#Email admin
+$mails_admin="thaigqsoft@gmail.com";
+#ชื่อ เว็บ ที่ต้องการแสดงในหน้า popup
+$web_logo="www.thaigqsoft.com";
+#วันหมดอายุครั้งแรก
+$data_datessss="15 Sep 2011 09:00:00";
+ 
+	?>

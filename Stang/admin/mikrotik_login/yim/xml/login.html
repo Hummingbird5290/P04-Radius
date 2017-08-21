@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
+	<head>
+		<!--
+    Created by Artisteer v3.0.0.35414
+    Base template (without user's data) checked by http://validator.w3.org : "This page is valid XHTML 1.0 Transitional"
+    -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+		<title>New Page</title>
+		<link rel="stylesheet" href="./style.css" type="text/css" media="screen" />
+		<!--[if IE 6]><link rel="stylesheet" href="./style.ie6.css" type="text/css" media="screen" /><![endif]-->
+		<!--[if IE 7]><link rel="stylesheet" href="./style.ie7.css" type="text/css" media="screen" /><![endif]-->
+
+	</head>
+	<body>
+    $(if chap-id)
+    <form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="http://www.ce-media.net" />
+		<input type="hidden" name="popup" value="true" />
+	</form> 
+	
+        <script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	<!--
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	//-->
+	</script>
+	$(endif)
+		<div id="art-main">
+			<div class="art-sheet">
+				<div class="art-sheet-tl"></div>
+				<div class="art-sheet-tr"></div>
+				<div class="art-sheet-bl"></div>
+				<div class="art-sheet-br"></div>
+				<div class="art-sheet-tc"></div>
+				<div class="art-sheet-bc"></div>
+				<div class="art-sheet-cl"></div>
+				<div class="art-sheet-cr"></div>
+				<div class="art-sheet-cc"></div>
+				<div class="art-sheet-body">
+					<div class="art-header">
+						<div class="art-header-center">
+							<div class="art-header-png"></div>
+							<div class="art-header-jpeg"></div>
+						</div>
+						<div class="art-logo">
+							<h1 id="name-text" class="art-logo-name"><a href="./index.html">CHOMTHONG HOTSPOT</a></h1>
+							<h2 id="slogan-text" class="art-logo-text"> ระบบอินเทอร์เน็ตไร้สาย สำหรับบ้านนอกขัวอี่ปวง</h2>
+                            <h3 id="slogan-text" class="art-logo-text"><marquee scrollamount="15" scrolldelay="0"> ท่านทีเข้าใช้งานไม่ได้เนื่องจากครบกำหนดชำระรายเดือนมาจ่ายที่บ้านได้เลยครับ</marquee></h3>
+						</div>
+					</div>
+					<div class="art-content-layout">
+						<div class="art-content-layout-row">
+							<div class="art-layout-cell art-content">
+								<div class="art-post">
+									<div class="art-post-body">
+										<div class="art-post-inner art-article">
+											<div class="art-postcontent">
+												<p><tr>
+            <td align="center">&nbsp;</td>
+          </tr>
+          <tr>
+            <td><div align="center">
+              <table width="248" height="160" style="border: 1px solid #cccccc; padding: 0px;" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width="246" height="158" colspan="2" align="center"><form action="$(link-login-only)" method="post" name="login" id="login" onsubmit="return doLogin()"
+					    $(if chap-id)"chap-id)""" $(endif)>
+        กรุณาลงชื่อเข้าใช้งาน<br />
+        <br />
+        <input type="hidden" name="dst" value="$(link-orig)" />
+        <input type="hidden" name="popup" value="true" />
+        <table width="208" align="left" style="background-color: #ffffff">
+          <tr>
+            <td width="98" align="right"><div align="right">ชื่อผู้ใช้ : </div></td>
+            <td width="98"><div align="center">
+                <input style="width: 80px" name="username" type="text" value="$(username)"/>
+            </div></td>
+          </tr>
+          <tr>
+            <td align="right"><div align="right"> รหัสผ่าน :</div> </td>
+            <td><div align="center">
+                <input style="width: 80px" name="password" type="password"/>
+            </div></td>
+          </tr>
+          <tr>
+            <td height="36">&nbsp;</td>
+            <td valign="bottom"><div align="center">
+                <input type="submit" value="เข้าสู่ระบบ" />
+            </div></td>
+          </tr>
+        </table>
+                  </form></td>
+                </tr>
+              </table>
+            </div></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td><div align="center">สนใจลงโฆษณาและใช้งานติดต่อได้ที่เบอร์ 08-2392-7472</div></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td><div align="center">แจ้งปัญหาการใช้งาน E-mail  :support@ce-media.net</div></td> <td><div align="center"> <a href="popup.html" target="_new">วิธีการตั้งค่าให้ web browser แสดง Pop-ups</a></div>
+          </tr>
+      </table>
+		        <br />
+		
+	$(if error)<br /><div style="color: #FF8080; font-size: 9px">$(error)</div>$(endif)
+	</td>
+	</tr>
+</table> </p>
+											  
+</div>
+											<div class="cleared"></div>
+										</div>
+										<div class="cleared"></div>
+									</div>
+								</div>
+								<div class="cleared"></div>
+							</div>
+						</div>
+					</div>
+					<div class="cleared"></div>
+					<div class="art-footer">
+						<div class="art-footer-t"></div>
+						<div class="art-footer-l"></div>
+						<div class="art-footer-b"></div>
+						<div class="art-footer-r"></div>
+						<div class="art-footer-body"><a href="./#" class="art-rss-tag-icon" title="RSS"></a>
+							<div class="art-footer-text">
+															<p>Copyright © 2011. All Rights Reserved.</p>
+							</div>
+							<div class="cleared"></div>
+						</div>
+					</div>
+					<div class="cleared"></div>
+				</div>
+			</div>
+			<div class="cleared"></div>
+			<p class="art-page-footer">Powered by <a href="http://www.ce-media.net">ce-media</a> and Template created for CHOMTHONG HOTSPOT</p>
+		</div>
+        <script>
+<!--
+  document.login.username.focus();
+//-->
+</script>
+	</body>
+</html>

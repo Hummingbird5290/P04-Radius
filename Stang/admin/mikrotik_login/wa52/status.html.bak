@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)http://twitter.github.com/bootstrap/examples/fluid.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta charset="utf-8">
+    <title>อินเตอร์เน็ตราคา เบา เบา</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+background-color:#051d30;
+background-attachment:fixed;
+      }
+      .sidebar-nav {
+	padding: 9px 0;
+	text-align: center;
+      }
+    .row-fluid .span3 .well.sidebar-nav .nav.nav-list li table tr td form table {
+	text-align: center;
+}
+    .a {
+	font-weight: bold;
+}
+    </style>
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="icon/16x16.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icon/144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icon/114x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icon/72x72.png">
+    <link rel="apple-touch-icon-precomposed" href="icon/57x57.png">
+  </head>
+
+<body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="192.168.100.1">PLAY TIME อินเตอร์เน็ตราคา เบา เบา</a>
+          <div class="btn-group pull-right">
+            <a class="btn btn-inverse" data-toggle="dropdown"
+               ><i class="icon-signal icon-white"></i> IP: $(ip) MAC: $(mac)
+            </a>
+          </div>
+          <div class="nav-collapse"></div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="active"><a href="192.168.100.1">ชื่อที่ใช้งานคือ</a></li></p>
+                <li><td><a href="http://192.168.100.1:88/user">
+                  <button class="btn btn-info btn-large"><i class="icon-user icon-white"></i> $(username)</button>
+              </a></td></li>
+              <li><tr></p>
+<td align="center" valign="middle">
+<form action="$(link-logout)" name="logout" onSubmit="return openLogout()">
+ $(if login-by-mac != 'yes')
+<br></p>
+<!-- user manager link. if user manager resides on other router, replace $(hostname) by its address
+<button onclick="document.location='http://$(hostname)/user?subs='; return false;">status</button>
+<!-- end of user manager link -->
+<input class="btn btn-inverse btn-large" type="submit"value="ออกจากระบบ"> 
+</p>$(endif)
+</form>
+
+</td>
+</table>
+              </li>             
+         <div id="myModal" class="modal hide fade">
+            <div class="modal-header">
+              <button class="close" data-dismiss="modal">&times;</button>
+              <h3>รายละเอียด</h3>
+            </div>
+            <div class="modal-body">
+              <h4>ร้านกาแฟสด Coffman</h4>
+              <p><center>
+  <font size="" color="#66cc00">60 บาท = 7 วันไม่จำกัด ชม.<br>
+</font>
+<font size="" color="#ff00cc">100 บาท = 15 วันไม่จำกัด ชม.<br>
+</font>
+<font size="" color="#ffcc00">180 บาท = 30 วันไม่จำกัด ชม.<br>
+</font></center>
+</p>
+              <h4>แพ็คเกจ แบบ วัน</h4>
+              <p><font size="" color="#3300cc">อายุของบัตรจะนับเป็นวัน และเริ่มนับจากการ login ครั้งแรก เช่น บัตร 7 วัน login ครั้งแรก วันที่ 1 เวลา 15.00 น. ก็จะหมด ในวันที่ 8 เวลา 15.00 น. และถึงจะไม่มีการใช้งาน ในวันที่ 2 หรือ 3 บัตรก็จะ หมดอายุในวันที่ 8 เหมือนเดิมค่ะ</font></p>
+              <hr>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn" data-dismiss="modal" >Close</a>
+            </div>
+          </div>
+          <p><a data-toggle="modal" href="#myModal" class="btn btn-warning btn-large"><i class="icon-shopping-cart icon-white"></i>ซื้อรหัส ร้านกาแฟ Coffman</a></p>
+         </li>
+               <li><center><a class="btn btn-large btn-block btn btn btn-danger" href="http://playtime-th.com/true/howto.htm"><i class="icon-shopping-cart icon-white"></i>&nbsp;&nbsp;ซื้อรหัสด้วย True Money&nbsp;&nbsp;</a></center><br><center></center>
+<center><div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <i class="icon-qrcode"></i>
+  <font size="" color="#009966"><b>ไม่จำเป็นต้องใช้เบอร์ True 
+</b></font></div><img src="img/tm.jpg"></center></li>         
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+        <div class="span9">
+          <div class="hero-unit">
+		  <center><div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <h4><i class="icon-warning-sign"></i> โปรดระวัง !!</h4>
+  <font size="" color="#ff0066"><b>ทางระบบได้มีการเก็บข้อมูลการใช้งานทั้งหมด ตาม พรบ. คอมพิวเตอร์ พ . ศ . 2550 เพื่อป้องกันการกระทำที่ผิดกฏหมาย
+</b></font></div></center>
+           <center>
+		   <a class="btn btn-large btn-block btn btn-inverse" href="http://192.168.100.1:88/user">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon-wrench icon-white"></i> เปลี่ยนรหัสผ่าน และเช็คเวลา&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><br><br>
+		   <a class="btn btn-large btn-block btn-primary" href="http://www.facebook.com/pages/PlayTIME-WiFi/126515477450350">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="icon-thumbs-up icon-white"></i> พูดคุยกันใน FACE BOOK&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><br><br>
+		   <a class="btn btn-large btn-block btn btn-success" href="http://playtime-th.com/true/howto.htm"><i class="icon-qrcode icon-white"></i> รายละเอียด การเติมเงินระบบ True Money</a></center><br><br>
+<br><div class="alert alert-success">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <center><font size="" color="#009966"><b>ซื้อบัตรไม่ได้ หรือซื้อไม่ทัน โทรบอกได้เลยครับ หรือสงสัยอะไรก็ โทรถามได้เลยครับตลอดเวลา  
+</b>โทร . 089-188-1847
+</font></center></div></p></font>
+        </td></p>
+      </div><!--/row-->
+      <hr>
+      <footer>
+        <p><button class="btn" type="button">© Build 2012 by PLAYTIME</button></p>
+      </footer>
+    </div><!--/.fluid-container-->
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+</body></html>

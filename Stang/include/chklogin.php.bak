@@ -1,0 +1,26 @@
+<?php 
+ob_start();
+session_start();
+// print   $_SERVER["REQUEST_URI"];
+
+$www=$HTTP_HOST;
+
+  $chk_moniter=mb_ereg( "admin", $_SERVER["REQUEST_URI"]);
+   
+if (empty($_SESSION['adminpass']))   // ตรวจสอบว่าผ่านการ login หรือไม่
+     {
+   
+       header('location:login.php');
+       echo"คุณยังไม่ได้ Login  ";
+       exit();  
+     }  
+	 
+ 
+ 
+ if($chk_moniter=="1"   and   $_SESSION["moniter"]=="moniter" )
+ {
+   echo "<meta http-equiv=refresh content=0;URL=https://$www/admin/login.php>"; 
+       echo"คุณยังไม่ได้ Login  ";
+       exit();  
+ }
+?>

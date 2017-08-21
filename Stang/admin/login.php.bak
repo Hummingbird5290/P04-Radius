@@ -1,0 +1,119 @@
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-874">
+<?php
+date_default_timezone_set('Asia/Bangkok');
+
+ #เรียก cache-kit.php
+include_once('../cache-kit.php');
+
+# Config 
+$cache_active = true; 
+$cache_folder = 'cache/';
+
+//9ตรวจสอบว่าเป็น mobiles หรือไม่
+$mobile=0;
+if( preg_match('/Android/',$_SERVER[HTTP_USER_AGENT])){
+$mobile=1;
+}
+if( preg_match('/Mobile/',$_SERVER[HTTP_USER_AGENT])){
+$mobile=1;
+}
+  /*  if( $_SERVER['SERVER_PORT'] == 80) {
+     $link_to='https://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'/'.basename($_SERVER['PHP_SELF']);
+     echo  "<meta http-equiv=refresh content=0;URL=$link_to >";
+     die();
+    }
+	*/
+
+function randomToken($len){ 
+ 
+ $ret_str=null;
+for($gen_is=1; $gen_is <= $len; $gen_is++) { 
+$ret_str.= mt_rand(0,9); // ใช้ฟังชั่น rand() เข้ามาช่วยในการทำงาน 
+} 
+ 
+return $ret_str; 
+} 
+?>
+
+<?php
+$BGS = acmeCache::fetch('BGS', 10000); // 10000 seconds
+if(!$BGS){
+$BGS=rand(1,10); $BGS .=".jpg";
+acmeCache::save('BGS', $BGS);
+
+}
+?>
+<link href="../css/style.css" rel="stylesheet" type="text/css">
+<?php if($mobile !=1){ ?>
+<style type="text/css">
+<!--
+body {
+	background-image: url(../bg.jpg);
+}
+-->
+</style>
+<? } ?>
+<body bgcolor="#FFFFCC" >
+ 
+	
+	<form action="chk_login.php" method="post" enctype="application/x-www-form-urlencoded" name="form1">
+  <table width="969" height="457" border="0" align="center"  class="txtContentBold" 
+ <?php if($mobile !=1){ ?>   background="<?php print "bg_login/".$BGS;?>" <? } ?> > 
+    <tr valign=middle  > 
+      <td colspan="4" bgcolor="#FFFFCC" ><div align="center"  >   
+          &nbsp;<span class="scimenu" >เข้าสู่ระบบผู้ดูแลระบบ</span> <br>
+          <img src="images/horz_3.gif" width="250" height="1"></div></td>
+    </tr>
+    <tr valign=middle > 
+      <th colspan="4">&nbsp;</th>
+    </tr>
+    <tr  >
+      <td width="311" class="scimenu">&nbsp;</td> 
+      <td width="149" bgcolor="#FFFFFF" class="scimenu"><div align="right"><span class="scimenu"><strong><font color="#333333" size="2">username<img src="images/login_user.gif" width="17" height="17"></font></strong></span></div></td>
+      <td width="495"><span class="scimenu"><strong>
+        <input name="username" type="text" id="username" value=""    class="txtContent3_orange"   autocomplete="off"> 
+      </strong></span></td>
+    </tr>
+    <tr  >
+      <td   class="scimenu">&nbsp;</td> 
+      <td bgcolor="#FFFFFF" class="scimenu"><div align="right"><span class="scimenu"><strong><font color="#333333" size="2">password<img src="images/login_pw.gif" width="17" height="17"></font></strong></span></div></td>
+      <td><span class="scimenu"><strong>
+        <input name="password" type="password" id="password" class="txtContent3_orange"   autocomplete="off"> 
+      </strong></span></td>
+    </tr>
+    <tr  >
+      <td  class="scimenu">&nbsp;</td>
+      <td bgcolor="#FFFFFF" class="scimenu">&nbsp;</td>
+      <td valign="baseline"><div align="left"><span class="scimenu"><strong><font color="#0000FF">
+                      <?php   $ran_str = randomToken(3);    ?>
+                      <img src="../pic_text.php?str=<?=$ran_str?>" width="100" height="30" align="bottom">&nbsp; 
+                      &nbsp; </font></strong></span></div></td>
+    </tr>
+    <tr >
+      <td  class="scimenu">&nbsp;</td> 
+      <td bgcolor="#FFFFFF" class="scimenu"><div align="right"><span class="scimenu"><strong><font size="2" face="MS Sans Serif, Tahoma, sans-serif">CODE</font></strong></span></div></td>
+      <td><span class="scimenu"><strong>
+        <input name="code1" type="text" class="txtContent3_orange" id="code1" size="10" />
+        &nbsp;</strong></span></td>
+    </tr>
+    <tr >
+      <td   class="scimenu">&nbsp;</td>
+            <td bgcolor="#FFFFFF" class="scimenu"><div align="right"><span class="scimenu"><strong><font size="2" face="MS Sans Serif, Tahoma, sans-serif">เข้าแบบหน้าจอ Mobile</font></strong></span></div></td>
+      <td><input name="mobiles" type="checkbox" id="mobiles" value="1"   <?php   if($mobile ==1){ ?>checked> <?php }  ?></td>
+    </tr>
+    <tr >
+      <td   class="scimenu"><input name="chk_num"  type="hidden" id="chk_num" value="<?php echo "$ran_str"; ?>"  /></td>
+      <td bgcolor="#FFFFFF" class="scimenu">&nbsp;</td>
+      <td><span class="scimenu">
+        <input name="Submit" type="submit" id="Submit" value="เข้าสู่ระบบ"  >
+      </span>        <input name="cancel" type="reset" id="cancel" value="กรอกใหม่"></td>
+    </tr>
+    <tr  > 
+      <td height="45" colspan="3"> <p align="left">&nbsp;</p>
+        <p align="center">&nbsp; </p></td>
+    </tr>
+    <tr  >
+      <td height="450" colspan="3">&nbsp;</td>
+    </tr>
+  </table>
+</form>

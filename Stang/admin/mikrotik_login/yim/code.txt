@@ -1,0 +1,3 @@
+<p style="text-align: center;"><img width="150" height="150" alt="" class="kangndo-lightbox" src="images/wifi.png"></p>
+
+<p style="text-align: center;"> <a href="http://www.google.co.th"><img width="300" height="115" alt="Foursons Hotel" src="images/line.png"></a></p>

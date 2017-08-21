@@ -1,0 +1,66 @@
+Apr/06/2013 14:00:07 web-proxy,account 10.5.52.254 GET http://appexbingfinance.trafficmanager.net/Market.svc/AppTile?symbol=145.10.!SET50_IND.145.!SET50&type=0&mkt=TH-TH&mode=0  action=allow cache=MISS
+Apr/06/2013 14:00:07 web-proxy,account 10.5.52.254 GET http://appexbingweather.trafficmanager.net/WeatherService.svc/LiveTile?city=%E0%B8%9B%E0%B8%B2%E0%B8%A3%E0%B8%B5%E0%B8%AA&lat=48.857&long=2.341&unit=C&lang=TH&mkt=en-US&region=US&appid=C98EA5B0842DBB9405BBF071E1DA76 action=allow cache=MISS
+Apr/06/2013 14:00:07 web-proxy,account 10.5.52.254 GET http://appexbingfinance.trafficmanager.net/Market.svc/AppTile?symbol=145.10.!SET_IND.145.!SET&type=0&mkt=TH-TH&mode=0  action=allow cache=MISS
+Apr/06/2013 14:00:07 web-proxy,account 10.5.52.254 GET http://login.live.com/ppcrlcheck.srf  action=allow cache=MISS
+Apr/06/2013 14:00:22 web-proxy,account 10.5.52.254 GET http://www.msftncsi.com/ncsi.txt  action=allow cache=MISS
+Apr/06/2013 14:00:49 web-proxy,account 10.5.52.254 GET http://www.msftncsi.com/ncsi.txt  action=allow cache=MISS
+Apr/06/2013 14:01:19 web-proxy,account 10.5.52.254 GET http://www.msftncsi.com/ncsi.txt  action=allow cache=MISS
+Apr/06/2013 14:01:48 web-proxy,account 10.5.52.254 GET http://tapsala.zapto.org/  action=allow cache=MISS
+Apr/06/2013 14:01:50 web-proxy,account 10.5.52.254 GET http://www.msftncsi.com/ncsi.txt  action=allow cache=MISS
+Apr/06/2013 14:01:50 web-proxy,account 10.5.52.254 GET http://www.google-analytics.com/__utm.gif?utmwv=5.4.0&utms=1&utmn=530377942&utmhn=oeopbcgkkoapgobdbedcemjljbihmemj&utmcs=UTF-8&utmsr=1366x768&utmsc=32-bit&utmul=th&utmje=1&utmfl=11.6%20r602&utmdt=Checker%20Plus%20fo action=allow cache=MISS
+Apr/06/2013 14:02:00 hotspot,info,debug tlog (10.5.52.254): trying to log in by http-pap
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): local user not found
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): sending RADIUS authentication request
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): Access-Accept from RADIUS
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): using profile <default>
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): interim-update <600> from RADIUS
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): redirection-url <http://google.co.th> from RADIUS
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): assembled rate limit <41943040/101943040> from RADIUS data rate
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): session timeout <18000> from RADIUS
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): idle timeout <600> from RADIUS
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): adding ip->user binding
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): adding queue <41943040/101943040>
+Apr/06/2013 14:02:00 hotspot,account,info,debug tlog (10.5.52.254): logged in
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): sending RADIUS accounting Start request
+Apr/06/2013 14:02:00 hotspot,debug tlog (10.5.52.254): RADIUS accounting request sent
+Apr/06/2013 14:02:34 system,info,account user admin logged in from 10.5.52.254 via winbox
+Apr/06/2013 14:11:44 hotspot,debug HOME-YIM: dhcp host 10.5.52.254 changed type to dynamic (remove after 5s)
+Apr/06/2013 14:11:44 hotspot,debug HOME-YIM: dynamic host 10.5.52.254 changed type to dhcp (got back lease)
+Apr/06/2013 14:11:49 system,info,account user admin logged in from 10.5.52.254 via winbox
+Apr/06/2013 14:12:01 hotspot,debug tlog (10.5.52.254): sending RADIUS accounting Interim-Update request
+Apr/06/2013 14:12:01 hotspot,debug tlog (10.5.52.254): RADIUS accounting request sent
+Apr/06/2013 14:13:40 hotspot,debug HOME-YIM: dhcp host 10.5.52.254 changed type to dynamic (remove after 5s)
+Apr/06/2013 14:13:40 hotspot,debug HOME-YIM: dynamic host 10.5.52.254 changed type to dhcp (got back lease)
+Apr/06/2013 14:13:59 system,info,account user admin logged in from 10.5.52.254 via winbox
+Apr/06/2013 14:14:10 hotspot,info,debug tlog (10.5.52.254): logged out: admin reset
+Apr/06/2013 14:14:10 hotspot,account tlog (10.5.52.254): 730 1457520 20319726 14326 17843 (admin reset)
+Apr/06/2013 14:14:10 hotspot,debug tlog (10.5.52.254): removing queue
+Apr/06/2013 14:14:10 hotspot,debug tlog (10.5.52.254): removing ip->user binding
+Apr/06/2013 14:14:10 hotspot,debug tlog (10.5.52.254): sending RADIUS accounting Stop request
+Apr/06/2013 14:14:10 hotspot,debug tlog (10.5.52.254): RADIUS accounting request sent
+Apr/06/2013 14:14:14 web-proxy,account 10.5.52.254 GET http://pagead2.googlesyndication.com/pagead/expansion_embed.js  action=allow cache=MISS
+Apr/06/2013 14:14:14 web-proxy,account 10.5.52.254 GET http://tags.bluekai.com/site/4229?id=138702675903&redir=http%3A%2F%2Fa.tribalfusion.com%2Fi.match%3Fp%3Db3%26u%3D%24_BK_UUID  action=allow cache=MISS
+Apr/06/2013 14:14:41 web-proxy,account 10.5.52.254 POST http://tools.google.com/service/update2?w=6:V9YJZyFFNOK2kOrAqv6aQujhu5Vj-N54M0NZpT8OoeASNEbJhQgdexNd7QyILi-frvdfl5nI4jcD8S8Luf_0OTqiNb9wwg3v1jf2YSynY7wapheOytQC_0p-T1B7_Lu9176t-6EKtoJEZkFPMYiN-e1DWytNnP4jequfzGkkuN action=allow cache=MISS
+Apr/06/2013 14:14:52 web-proxy,account 10.5.52.254 POST http://tools.google.com/service/update2?w=6:CMxPuKH7-Wk9NfiNyWbvXl-QnylyQmU22OhRJNOv2yQlriDfYzdffg8_CsCClLSuHlQOZJGHUl839XW3oBVQfR7GJPPWrMTdBGSI0KGlHp5kBI56bOwyxvjjfzLuqk3iQITE1hYn7Sh5bHRZSjjUKyhi_9nyT4SRYKyescPq8Z action=allow cache=MISS
+Apr/06/2013 14:15:16 web-proxy,account 10.5.52.254 GET http://www.google-analytics.com/__utm.gif?utmwv=5.4.0&utms=2&utmn=258901980&utmhn=oeopbcgkkoapgobdbedcemjljbihmemj&utmcs=UTF-8&utmsr=1366x768&utmsc=32-bit&utmul=th&utmje=1&utmfl=11.6%20r602&utmdt=Checker%20Plus%20fo action=allow cache=MISS
+Apr/06/2013 14:15:27 web-proxy,account 10.5.52.254 GET http://www.voip-info.org/wiki/view/Asterisk+RealTime+Extensions  action=allow cache=MISS
+Apr/06/2013 14:15:31 web-proxy,account 10.5.52.254 GET http://notify2.dropbox.com/subscribe?host_int=480845234&ns_map=5883011_1417231839380611,42259861_12927161749,160413303_55465368073847,21771931_-1,55425965_2602805607341,119476861_214867841661&ts=1365232437  action=allow cache=MISS
+Apr/06/2013 14:15:34 hotspot,info,debug tlog (10.5.52.254): trying to log in by http-pap
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): local user not found
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): sending RADIUS authentication request
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): Access-Accept from RADIUS
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): using profile <default>
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): interim-update <600> from RADIUS
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): redirection-url <http://google.co.th> from RADIUS
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): assembled rate limit <41943040/101943040> from RADIUS data rate
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): session timeout <18000> from RADIUS
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): idle timeout <600> from RADIUS
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): adding ip->user binding
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): adding queue <41943040/101943040>
+Apr/06/2013 14:15:34 hotspot,account,info,debug tlog (10.5.52.254): logged in
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): sending RADIUS accounting Start request
+Apr/06/2013 14:15:34 hotspot,debug tlog (10.5.52.254): RADIUS accounting request sent
+Apr/06/2013 14:16:13 system,info,account user web logged in from 192.168.73.1 via api
+Apr/06/2013 14:16:13 system,info,account user web logged out from 192.168.73.1 via api
+Apr/06/2013 14:16:47 system,info,account user web logged in from 192.168.73.1 via api
+Apr/06/2013 14:16:47 system,info,account user web logged out from 192.168.73.1 via api

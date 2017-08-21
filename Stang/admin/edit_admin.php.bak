@@ -1,0 +1,99 @@
+ <?php
+  include("../include/chklogin.php");   
+  if ($_SERVER['HTTP_CLIENT_IP']) { 
+$IP = $_SERVER['HTTP_CLIENT_IP'];
+} elseif (preg_match("/[0-9]/",$_SERVER["HTTP_X_FORWARDED_FOR"] )) { 
+$IP = $_SERVER["HTTP_X_FORWARDED_FOR"];
+} else { 
+$IP = $_SERVER["REMOTE_ADDR"];
+}
+  ?>
+ <meta http-equiv="Content-Type" content="text/html; charset=windows-874">
+ <?php
+include("../Connections/dbconnect.php");
+
+$tb="admin";
+
+if($submit=="แก้ไข" and $password !='' ) {
+
+$password = htmlspecialchars("$password", ENT_QUOTES);
+$password=md5($password); // เข้ารหัส Md5
+mysql_query("update     $tb   set   password= '$password' where  uname='$uname'  " ) or    die ("แก้ไข ข้อมูลลง Table ไม่ได้ ");
+mysql_query("INSERT INTO history_admin  (noute) values('ผู้ดูแลระบบ เปลี่ยนรหัสผ่าน ไอดี $uname  จากเครื่องรีโมท หมายเลขไอพี  $IP')") 
+}
+
+if($edit=="1") {
+
+$sql = "delete from $tb where uname='$iddel'  ";
+$dbquery = mysql_select_db($database_edoc); mysql_query($sql);
+
+}
+?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-874">
+
+ 
+</head>
+
+<body class="style26">
+<p align="center" class="style1 style2">&nbsp; </p>
+<table width="100%" border="1" align="center" cellpadding="0" cellspacing="0">
+  <tr bgcolor="#CCCCCC" class="style26"> 
+    <td width="445" height="31" bgcolor="#66CCFF"><div align="center" class="style1 style2"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><strong>รายนามผู้ดุแลระบบ</strong></font></div></td>
+    <td width="55" bgcolor="#66CCFF"><div align="center"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><strong>แก้ไข</strong></font></div></td>
+    <td width="55" bgcolor="#66CCFF"><div align="center" class="style5"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><strong>ลบทิ้ง</strong></font></div></td>
+  </tr>
+  <?php 
+  $query_Recordset1 = "SELECT   *   FROM admin  where uname != 'yim'   and uname != 'yim'";
+$Recordset1 = mysql_query($query_Recordset1, $connect_db) or die(mysql_error());
+$row_Recordset1 = mysql_fetch_assoc($Recordset1);
+$totalRows_Recordset1 = mysql_num_rows($Recordset1);
+
+  do { ?>
+  <tr bgcolor="#FFFFFF" class="style26"> 
+    <td height="23"><div align="center" class="style3"> 
+        <div align="left"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><?php echo $row_Recordset1['uname']; ?></font></div>
+      </div></td>
+    <td><div align="center"><a href="index.php?case_i=26&idedit2=<?php echo $row_Recordset1['uname']; ?>"><img src="../images/test.gif" width="16" height="16" border="0"></a></div></td>
+    <td><div align="center" class="style3"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><a href="<?php echo $editFormAction; ?>?case_i=12&edit=1&iddel=<?php echo $row_Recordset1['uname']; ?>" onClick="return cdelete(this)"><img src="../images/delete.gif" width="16" height="16" border="0"> </a></font></div></td>
+  </tr>
+  <?php } while ($row_Recordset1 = mysql_fetch_assoc($Recordset1)); ?>
+</table>
+<p align="right"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><a href="index.php?case_i=12">เพิ่มผู้ดูแลระบบ</a></font></p>
+<p>&nbsp;</p>
+  
+<?php 
+  $query_Recordset12 = "SELECT   *   FROM admin  where uname  ='$idedit2' ";
+$Recordset12 = mysql_query($query_Recordset12, $connect_db) or die(mysql_error());
+$row_Recordset12 = mysql_fetch_assoc($Recordset12);
+ 
+?>
+<div align="center"><strong>แก้ไขรหัสผ่านผู้ดูแลระบบ</strong> </div>
+<form method="post" name="form1" action="<?php echo $editFormAction; ?>?case_i=26">
+  <table width="435" align="center">
+    <tr valign="baseline"> 
+      <td align="right" nowrap bgcolor="#66CCFF"><strong><span class="style5">Login 
+        name::</span></strong></td>
+      <td><input name="uname" type="text" id="uname" value="<?php print  $row_Recordset12[uname];?>" readonly="yes" size="32"></td>
+    </tr>
+    <tr valign="baseline"> 
+      <td align="right" nowrap bgcolor="#66CCFF"><strong>Password::</strong></td>
+      <td><input name="password" type="password" id="password" value="" size="32"></td>
+    </tr>
+    <tr valign="baseline"> 
+      <td align="right" nowrap bgcolor="#66CCFF">&nbsp;</td>
+      <td><input type="submit" value="แก้ไข" name="submit"></td>
+    </tr>
+  </table>
+ 
+</form>
+<?php
+mysql_free_result($Recordset1);
+?>
+<p>&nbsp;</p>
+</body>
+</html>
+

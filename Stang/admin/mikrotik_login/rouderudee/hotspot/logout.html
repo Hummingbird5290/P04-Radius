@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>mikrotik hotspot > logout</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-874">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<style type="text/css">
+<!--
+textarea,input,select {
+	background-color: #FDFBFB;
+	border: 1px #BBBBBB solid;
+	padding: 2px;
+	margin: 1px;
+	font-size: 14px;
+	color: #808080;
+}
+
+.tabula{
+ 
+border-width: 1px; 
+border-collapse: collapse; 
+border-color: #c1c1c1; 
+background-color: transparent;
+font-family: verdana;
+font-size: 11px;
+}
+
+body{ color: #737373; font-size: 12px; font-family: verdana; }
+
+a, a:link, a:visited, a:active { color: #AAAAAA; text-decoration: none; font-size: 12px; }
+a:hover { border-bottom: 1px dotted #c1c1c1; color: #AAAAAA; }
+img {border: none;}
+td { font-size: 12px; padding: 4px;}
+
+-->
+</style>
+</head>
+
+<body>
+<script language="JavaScript">
+<!--
+    function openLogin() {
+	if (window.name != 'hotspot_logout') return true;
+	open('$(link-login)', '_blank', '');
+	window.close();
+	return false;
+    }
+//-->
+</script>
+
+<table width="100%" height="100%">
+
+<tr>
+<td align="center" valign="middle">
+<b>คุณได้ออกจากระบบแล้ว</b> <br><br>
+<table class="tabula" border="1">  
+<tr><td width="189" align="right" bgcolor="#FFFFCC">ชื่อเข้าใช้ระบบ:</td>
+<td>$(username)</td></tr>
+<tr><td align="right" bgcolor="#FFFFCC">หมายเลข แอดเดรส:</td>
+<td>$(ip)</td></tr>
+<tr><td align="right" bgcolor="#FFFFCC">แมค แอดเดรส:</td>
+<td>$(mac)</td></tr>
+<tr><td align="right" bgcolor="#FFFFCC">รวมเวลาเชื่อมต่อ:</td>
+<td><script language="JavaScript">
+	var myMsg= '$(uptime)';
+   			myMsg = myMsg.replace(/s/ig," วินาที ");
+			myMsg = myMsg.replace(/m/ig," นาที ");
+			myMsg = myMsg.replace(/h/ig," ชั่วโมง ");
+			myMsg = myMsg.replace(/d/ig," วัน ");
+             document.write(myMsg);
+  </script></td></tr>
+	$(if radius == 'true' ) 
+ <tr>
+	    <td align="right" bgcolor="#FFFFCC">Today Download :</td>
+	    <td align="left" height="30" width="192">
+<iframe src="http://radius.t-voip0.zapto.org:81/chk_maxdownload.php?domain_name=huzzun&username=$(username)&HOTSPOT_IP=$(server-address)&data=$(bytes-in-nice)" height="15" width="70" frameborder="0" scrolling="no"  marginheight="0"  marginwidth="0"></iframe>
+	
+	 </td>
+	    </tr>   $(endif)
+<tr><td align="right" bgcolor="#FFFFCC">ปริมาณข้อมูล ดาวน์โหลด :</td>
+<td>$(bytes-in-nice) </td></tr>
+<tr><td align="right" bgcolor="#FFFFCC">ปริมาณข้อมูล  อัพโหลด :</td>
+<td>  $(bytes-out-nice)</td></tr>
+</table>
+<br>
+<form action="http://www.google.co.th" name="login" onSubmit="return openLogin()">
+<input type="submit" value="log in">
+</form>
+</td>
+</table>
+</body>
+</html>

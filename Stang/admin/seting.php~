@@ -1,0 +1,173 @@
+<?php
+session_start();
+include("../Connections/chacklogin.php");     
+ include_once ("../Connections/dbconnect.php");
+  include_once("FCKeditor/fckeditor.php") ; 
+?>
+<html>
+<head>
+<title>....</title>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-874">
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: MS Sans Serif;
+	font-size: 14px;
+}
+a:link {
+	color: #000000;
+}
+a:visited {
+	color: #000000;
+}
+a:hover {
+	color: #FF0000;
+}
+a:active {
+	color: #000000;
+}
+-->
+</style>
+</head>
+ 
+<body>
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr> 
+    <td width="3" background="img/dot_icon.jpg"><img src="img/dot_icon.jpg" alt="ระบบงานสารบรรณ" width="3" height="3"></td>
+    <td width="575" height="300"><table width="100%"  border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr bgcolor="#FFFFFF"> 
+          <td colspan="2" valign="middle"> 
+            <?php 
+ 
+ 
+	if ($save=="save") { 
+
+ 									
+                                                         $setup_update=  "update  seting  set room ='$room' ,  
+														                                                            site='$site' , 
+																													idstd='$idstd' ,
+																													allow_register='$allow_register1' ,
+																													none_chk_idper='$none_chk_idper' ,
+																													topdown='$topdown' ,
+																													mailadmin='$mailadmin' ,
+																													mailstatus='$mailstatus' ,
+																													tbname='$tbname' ";
+					                                                 
+																	   
+																	   mysql_query($setup_update, $connect_db)   or trigger_error(mysql_error(),E_USER_ERROR);
+ 
+										
+		     echo                  "<script type=text/javascript>";
+		    echo                  "alert('  Save OK ')";
+	        echo                  "</script>"; 
+			 echo "<meta http-equiv=refresh content=0;URL=index.php?case_i=36>"; 
+			 exit(); 
+}
+		
+		?>
+            <?php 
+$query_Recordset1 = "SELECT   *   FROM  seting      ";
+$Recordset1 = mysql_query($query_Recordset1, $connect_db) or die(mysql_error());
+$row_Recordset1 = mysql_fetch_assoc($Recordset1);
+
+
+?>
+            <form action="index.php?case_i=36" method="post" enctype="multipart/form-data" name="questionform">
+              <table width="100%" height="99%"  border="1" align="center" cellpadding="0" cellspacing="0">
+                <tr bgcolor="#FFFFCC"> 
+                  <td colspan="2"><font size="3" face="MS Sans Serif, Tahoma, sans-serif"> 
+                    <strong>ปรับแต่งระบบ</strong></font></td>
+                </tr>
+                <tr>
+                  <td bgcolor="#FFCCCC"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><strong>ชื่อหอพัก</strong></font></td>
+                  <td><font size="2" face="MS Sans Serif, Tahoma, sans-serif">
+                    <input name="tbname" type="text" id="tbname" value="<?php print  $row_Recordset1[tbname];  ?>" size="30">
+                  </font></td>
+                </tr>
+                <tr>
+                  <td bgcolor="#FFCCCC"><strong><font size="2" face="MS Sans Serif, Tahoma, sans-serif">Email ผู้ดูแลระบบ </font></strong></td>
+                  <td><font size="2" face="MS Sans Serif, Tahoma, sans-serif">
+                    <input name="mailadmin" type="text" id="mailadmin" value="<?php print  $row_Recordset1[mailadmin];  ?>" size="30">
+                  </font></td>
+                </tr>
+                <tr>
+                  <td bgcolor="#FFCCCC"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><strong>
+				  เปิดระบบการรายงานสรุปการขายบัตรเข้า E mail </strong></font></td>
+                  <td><input name="mailstatus" type="checkbox" value="1"  <?php if($row_Recordset1[mailstatus]==1){ print  "checked";} ?>></td>
+                </tr>
+                <tr> 
+                  <td width="36%" bgcolor="#FFCCCC"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><strong>ชื่อฟิลล์ 
+                    ที่หนึ่ง </strong></font></td>
+                  <td width="64%"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"> 
+                    <input name="site" type="text" id="site" value="<?php print  $row_Recordset1[site];  ?>" size="30">
+                    </font></td>
+                </tr>
+                <tr> 
+                  <td bgcolor="#FFCCCC"><strong><font size="2" face="MS Sans Serif, Tahoma, sans-serif">ชื่อฟิลล์ 
+                    ที่สอง</font></strong></td>
+                  <td><strong><font size="2" face="MS Sans Serif, Tahoma, sans-serif"> 
+                    <input name="room" type="text" id="room" value="<?php print  $row_Recordset1[room];  ?>" size="30">
+                    </font></strong></td>
+                </tr>
+                <tr> 
+                  <td bgcolor="#FFCCCC"><strong><font size="2" face="MS Sans Serif, Tahoma, sans-serif">ชื่อฟิลล์ 
+                    ที่สาม</font></strong></td>
+                  <td> <font size="2" face="MS Sans Serif, Tahoma, sans-serif"> 
+                    <input name="idstd" type="text" id="idstd" value="<?php print  $row_Recordset1[idstd];  ?>" size="30">
+                    </font></td>
+                </tr>
+                <tr> 
+                  <td bgcolor="#FFCCCC"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><strong>ปิดการใช้งานตรวจสอบหมายเลขบัตรประชาชนจากกรมสรรพกร</strong></font></td>
+                  <td> <br> <input name="none_chk_idper" type="radio" value="1" <?php if($row_Recordset1[none_chk_idper]=='1') { print  "checked";  }?>> 
+                    &nbsp;ปิดการใช้งาน<br> <br> <input type="radio" name="none_chk_idper" value="0"  <?php if($row_Recordset1[none_chk_idper]=='0') { print  "checked"; } ?>> 
+                    &nbsp;เปิดการใช้งานการตรวจสอบเลขบัตรประชาชน</td>
+                </tr>
+                <tr> 
+                  <td bgcolor="#FFCCCC"><font size="2" face="MS Sans Serif, Tahoma, sans-serif"><strong>อนุมัติหลังจากสมัครแล้วสามารถใช้งาน 
+                    Internet ได้เลย</strong></font></td>
+                  <td> <br> <input name="allow_register1" type="radio" value="0" <?php if($row_Recordset1[allow_register]=='0') { print  "checked";  }?>>
+                    ไม่อนุมัติ<strong><font size="2" face="MS Sans Serif, Tahoma, sans-serif"> 
+                    (สมัครแล้วต้องรอ Admin อนุมัติ)</font></strong><br> <br> <input type="radio" name="allow_register1" value="1"  <?php if($row_Recordset1[allow_register]=='1') { print  "checked"; } ?>> 
+                    &nbsp;อนุมัติ<strong><font color="#FF0000" size="2" face="MS Sans Serif, Tahoma, sans-serif"> 
+                    (สมัครแล้ว ไม่ต้องรอ Admin อนุมัติ)</font></strong></td>
+                </tr>
+                <tr> 
+                  <td colspan="2" bgcolor="#FFCCCC"><strong><font size="2" face="MS Sans Serif, Tahoma, sans-serif">ข้อความ 
+                    Top Down หน้าต่าง POPUP</font></strong></td>
+                </tr>
+                <tr bgcolor="#FFFFFF"> 
+                  <td colspan="2"><strong></strong><font size="2" face="MS Sans Serif, Tahoma, sans-serif"> 
+                    <?php
+							$FCKeditor = new FCKeditor('topdown') ;
+							 
+							$FCKeditor->BasePath = 'FCKeditor/';
+							$FCKeditor->Width = '550';
+							$FCKeditor->Height = '200';
+							$FCKeditor->Value =$row_Recordset1[topdown]; 
+							$FCKeditor->Create() ;
+                ?>
+                    </font></td>
+                </tr>
+                <tr> 
+                  <td><font size="2" face="MS Sans Serif, Tahoma, sans-serif">&nbsp;</font></td>
+                  <td><font size="2" face="MS Sans Serif, Tahoma, sans-serif">&nbsp; 
+                    <input name="save" type="submit" id="save" value="save">
+                    </font></td>
+                </tr>
+              </table>
+            </form>
+      
+          </td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr> 
+    <td colspan="2"> 
+      
+      <div align="right"> </div>
+      
+       </td>
+  </tr>
+</table>
+</body>
+</html>
